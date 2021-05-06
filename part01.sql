@@ -128,3 +128,28 @@
 	GO
 	stp_UltimoPedido
 	GO
+
+/*
+ * Instrução Dinâmica: quando crio um comando DML de forma que no decorrer 
+ * da criação é colocado claúsulas dentro da montagem do comando.
+ */
+	DECLARE @cTabela char(20) = 'tCADCliente'
+	EXECUTE ('SELECT * FROM ' + @cTabela )
+	GO
+
+	DECLARE @cTabela char(20) = 'tCADLivro'
+	EXECUTE ('SELECT * FROM ' + @cTabela )
+	GO
+
+/*
+ * Alterando os nomes das colunas de um resultado
+ */
+	DECLARE @cTabela char(20) = 'tCADCliente'
+	EXECUTE ('SELECT iidCliente, cNome  FROM ' + @cTabela + 
+			 ' ORDER BY iidCliente ASC')
+	WITH result SETS
+	(
+	  (ID INT NOT NULL,  
+	   Cliente VARCHAR(150) NOT NULL  
+	  )
+	);  
