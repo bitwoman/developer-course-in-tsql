@@ -598,3 +598,25 @@
  * @mValorEstoque. Depois o valor da coluna Quantidade é associado a variável 
  * @nQuantidade e por fim o valor da coluna mValor é associado a variável @mValor.
  */
+
+ /*
+  * TESTE 2:
+  */
+	DECLARE @nQuantidade INT = 100 
+ 
+	SELECT @nQuantidade = nQuantidade
+	FROM tRELEstoque
+	WHERE iidlivro = 107
+	ORDER BY iIDEstoque DESC
+ 
+	SELECT @nQuantidade AS Quantidade  
+
+/* A instrução SELECT não tem comandos de agregação (GROUP BY), DISTINCT e TOP 
+ * que agrupe ou filtre as linhas (Com exceção do WHERE IIDLIVRO=107). Com isso, 
+ * o SELECT percorrerá todas as linhas para o livro 107. Como temos um ORDER BY 
+ * no final, o resultado final será a linhas ordenadas a partir do maior iIDEstoque 
+ * (que é o 69710) para o menor iIDEstoque (que é o 9955). Sendo esse o último a 
+ * ser retornado. Como temos a variável @nQuantidade que receberá o valor da 
+ * coluna nQuantidade, então o valor da última linha para essa coluna será o número 
+ * 80.
+ */
