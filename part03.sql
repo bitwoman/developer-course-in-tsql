@@ -324,8 +324,3 @@
  */
 	SELECT * FROM tMOVSolicitacaoCompra
 
-
-
-
-
-
