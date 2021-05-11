@@ -5,8 +5,8 @@
  * - Começa com @.
  * - Define o tipo de dado que será armazenado.
  * - Opcional, define um valor.
- * - Se não definir valor, será asSUMido NULL.
- * - Ela existirá somente no contexto de execução do códiGO ou do lote
+ * - Se não definir valor, será assumido NULL.
+ * - Ela existirá somente no contexto de execução do código ou do lote
  */
 
 /*
@@ -37,8 +37,8 @@
  * atribuído a variável.
  *
  * SET
- * SELECT, declarANDo direto valor na variável.
- * SELECT, carregANDo os dados do resultado de uma consulta.
+ * SELECT, declarando direto valor na variável.
+ * SELECT, carregando os dados do resultado de uma consulta.
  */
 	USE eBook
 	GO
@@ -66,7 +66,7 @@
 	GO
 
 	DECLARE @dDiaHoje DATETIME 
-	SET @dDiaHoje = GETDATE()  -- CapturANDo a data e hora do momento. 
+	SET @dDiaHoje = GETDATE()  -- Capturando a data e hora do momento. 
 	PRINT @dDiaHoje
 
 
@@ -80,7 +80,6 @@
 	SET @nQtdLinhasProcessadas = @@ROWCOUNT
 	PRINT CAST(@nQtdLinhasProcessadas AS VARCHAR(200)) + ' linhas processadas.'
 	GO
-
 
 	DECLARE @cNome VARCHAR(200)  
 	DECLARE @cSobreNome VARCHAR(200), @cNomeCompleto VARCHAR(200) 
@@ -159,7 +158,7 @@
 	SET @xEnviarPedido = (SELECT * 
 						  FROM tMOVPedido
 						  JOIN tMOVPedidoItem ON tMOVPedido.iIDPedido = tMOVPedidoItem.iIDPedido
-						  --WHERE tMOVPedido.dPedido BETWEEN '2011-06-28' AND '2011-06-29' 
+						  WHERE tMOVPedido.dPedido BETWEEN '2011-06-28' AND '2011-06-29' 
 						  FOR XML AUTO, ELEMENTS
 						 )
 	SELECT @xEnviarPedido
@@ -179,7 +178,7 @@
 	SET @mValor = @mValor + 100 
 	SELECT @mValor
 
-/* Uma das atividades para quem desenvolve códiGO é criar e
+/* Uma das atividades para quem desenvolve código é criar e
  * utilizar as variáveis. No caso do T-SQL, vamos demonstrar como usar 
  * variáveis com as instruções DML para:
  * 
@@ -190,7 +189,7 @@
  */
 
 /*
- * UtilizANDo no INSERT 
+ * Utilizando no INSERT 
  */
 
 /*
@@ -229,7 +228,7 @@
 	GO
 
 /*
- * Pegar o ID do Autor 17369
+ * Pegar o ID do Autor 17370
  */ 
 
 /*
@@ -307,7 +306,7 @@
 		dNascimento = @dNascimento 
 	WHERE iIDAutor = @iIDAutor
 
-/* Pode utilizar o UPDATE para recuperar o dados que foi
+/* Pode utilizar o UPDATE para recuperar o dado que foi
  * atualizado e colocar em um variável. 
  * 
  * Cenário: atualizar o preço do livro "The Art of Dreaming"
