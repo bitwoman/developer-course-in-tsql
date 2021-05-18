@@ -1,6 +1,6 @@
 /* TRANSAÇÃO: Verdadeiro E Verdadeiro, se não, falso.
  * Unidade atomica: nã se divide, tudo deve ser realizada com sucesso ou não 
- * tudo dentro dela e colocar pra processar, tudo tem que ser concluido com sucesso.
+ * Tudo dentro dela tem que ser processado e concluído com sucesso.
  *
  * Uma transação pode ser definida como uma unidade lógica de trabalho.
  *
@@ -225,7 +225,7 @@
 /* @@TRANCOUNT: Use essa função de sistema para controlar se existe transação 
  * aberta e quantas transações atualmente estão abertas na conexão/sessão atual.
  *
- * @@TRANCOUNT retorna um número INTeiro com a quantidade de transação.
+ * @@TRANCOUNT retorna um número inteiro com a quantidade de transação.
  *
  * Se 0, não tem transação aberta. Se maior ou igual a 1, indica que tem 
  * transação aberta e o número indica a quantidade de transações em aberto. 
@@ -602,8 +602,8 @@
 	ROLLBACK
 
 /*
-Abrir um outra sessão e copiar o código abaixo 
-*/
+ * Abrir um outra sessão e copiar o código abaixo 
+ */
 	SELECT @@SPID
 	go
 
@@ -612,8 +612,8 @@ Abrir um outra sessão e copiar o código abaixo
 	 WHERE iIDCliente = 1 
 
 /*
-VisualizANDo os bloqueios e os recursos 
-bloqueado e os com a INTenção de bloqueio.
+ * Visualizando os bloqueios e os recursos 
+ * bloqueado e os com a intenção de bloqueio.
 */
 	SELECT 
 			resource_type AS TYPE, 
@@ -671,7 +671,7 @@ bloqueado e os com a INTenção de bloqueio.
 /* Quando um operação de leitura é realizada, a sessão tenta obter um 
  *  bloqueio compartilhado representado pela letra S. A sessão que realiza o bloqueio
  *  detêm o bloqueio do recurso e outra sessão pode solicitar somente bloqueio compartilhados
- *  ou com INTenção de bloqueio
+ *  ou com intenção de bloqueio
  */
 
 /* Executar esse SELECT em outra sessão. Pegar o SPID 
@@ -714,12 +714,12 @@ bloqueado e os com a INTenção de bloqueio.
 	HoBT	            Um heap ou árvore-B. Um bloqueio protegENDo uma 
 					  árvore-B (índice) ou o heap de páginas de dados 
 					  que não tem um índice clusterizado.
-	TABLE	            A tabela INTeira, inclusive todos os dados e índices.
+	TABLE	            A tabela inteira, inclusive todos os dados e índices.
 	FILE	            Um arquivo do banco de dados.
 	APPLICATION	      Um recurso de aplicativo especIFicado.
 	METADATA	         Bloqueios de metadados.
 	ALLOCATION_UNIT	Uma unidade de alocação.
-	DATABASE	         O banco de dados INTeiro.
+	DATABASE	         O banco de dados inteiro.
  */
  
 /*
@@ -778,14 +778,14 @@ bloqueado e os com a INTenção de bloqueio.
 	da linha (RID) ou da chave (KEY) onde temos o menor recurso 
 	que uma linha de dados.
 
-	Entretanto, ele pode solicitar o que chamados de INTenção de bloqueio
+	Entretanto, ele pode solicitar o que chamados de intenção de bloqueio
 	que pode ser exclusivo (IX) ou compartilhado (IS).
 
 	Para executar uma instrução onde requer um bloqueio, o engine do SQL Server
-	solicita a INTenção de bloqueios nos níveis mais alto
+	solicita a intenção de bloqueios nos níveis mais alto
 	do recurso que será bloqueado.
 
-	Por exemplo, se o engine decide bloquear uma KEY, ele tenta obter a INTenção 
+	Por exemplo, se o engine decide bloquear uma KEY, ele tenta obter a intenção 
 	de bloqueio de recursos maiores como PAGE ou TABLE.
 
 	Exemplo: 
@@ -986,7 +986,7 @@ bloqueado e os com a INTenção de bloqueio.
 /* Por padrão, a conexão espera indefinidamente pela liberação do bloqueio.
  * A dica aqui é usar esse Comando de forma pontual, onde existe processos com 
  * uma grande incidência de bloqueios e que a regra de negócio 
- * permite interromper a transação.
+ * permite interromper a transação..
 
  *	Exemplo:
  */
